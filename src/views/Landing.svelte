@@ -9,7 +9,6 @@
   const team2 = "/assets/img/team-2-800x800.jpg";
   const team3 = "/assets/img/team-3-800x800.jpg";
   const team4 = "/assets/img/team-4-470x470.png";
-  export let location;
 </script>
 
 <div>
@@ -38,8 +37,8 @@
               </h1>
               <p class="mt-4 text-lg text-blueGray-200">
                 This is a simple example of a Landing Page you can build using
-                Notus Svelte. It features multiple CSS components
-                based on the Tailwind CSS design system.
+                Notus Svelte. It features multiple CSS components based on the
+                Tailwind CSS design system.
               </p>
             </div>
           </div>
@@ -176,9 +175,7 @@
                     class="text-red-400 fill-current"
                   ></polygon>
                 </svg>
-                <h4 class="text-xl font-bold text-white">
-                  Top Notch Services
-                </h4>
+                <h4 class="text-xl font-bold text-white">Top Notch Services</h4>
                 <p class="text-md font-light mt-2 text-white">
                   The Arctic Ocean freezes every winter and much of the sea-ice
                   then thaws every summer, and that process will continue
@@ -261,9 +258,7 @@
                       </span>
                     </div>
                     <div>
-                      <h4 class="text-blueGray-500">
-                        Amazing page examples
-                      </h4>
+                      <h4 class="text-blueGray-500">Amazing page examples</h4>
                     </div>
                   </div>
                 </li>
@@ -305,12 +300,14 @@
             <div class="px-6">
               <img
                 alt="..."
-                src="{team1}"
+                src={team1}
                 class="shadow-lg rounded-full mx-auto max-w-120-px"
               />
               <div class="pt-6 text-center">
                 <h5 class="text-xl font-bold">Ryan Tompson</h5>
-                <p class="mt-1 text-sm text-blueGray-400 uppercase font-semibold">
+                <p
+                  class="mt-1 text-sm text-blueGray-400 uppercase font-semibold"
+                >
                   Web Developer
                 </p>
                 <div class="mt-6">
@@ -340,12 +337,14 @@
             <div class="px-6">
               <img
                 alt="..."
-                src="{team2}"
+                src={team2}
                 class="shadow-lg rounded-full mx-auto max-w-120-px"
               />
               <div class="pt-6 text-center">
                 <h5 class="text-xl font-bold">Romina Hadid</h5>
-                <p class="mt-1 text-sm text-blueGray-400 uppercase font-semibold">
+                <p
+                  class="mt-1 text-sm text-blueGray-400 uppercase font-semibold"
+                >
                   Marketing Specialist
                 </p>
                 <div class="mt-6">
@@ -369,12 +368,14 @@
             <div class="px-6">
               <img
                 alt="..."
-                src="{team3}"
+                src={team3}
                 class="shadow-lg rounded-full mx-auto max-w-120-px"
               />
               <div class="pt-6 text-center">
                 <h5 class="text-xl font-bold">Alexa Smith</h5>
-                <p class="mt-1 text-sm text-blueGray-400 uppercase font-semibold">
+                <p
+                  class="mt-1 text-sm text-blueGray-400 uppercase font-semibold"
+                >
                   UI/UX Designer
                 </p>
                 <div class="mt-6">
@@ -404,12 +405,14 @@
             <div class="px-6">
               <img
                 alt="..."
-                src="{team4}"
+                src={team4}
                 class="shadow-lg rounded-full mx-auto max-w-120-px"
               />
               <div class="pt-6 text-center">
                 <h5 class="text-xl font-bold">Jenna Kardi</h5>
-                <p class="mt-1 text-sm text-blueGray-400 uppercase font-semibold">
+                <p
+                  class="mt-1 text-sm text-blueGray-400 uppercase font-semibold"
+                >
                   Founder and CEO
                 </p>
                 <div class="mt-6">
@@ -469,9 +472,7 @@
       <div class="container mx-auto px-4 lg:pt-24 lg:pb-64">
         <div class="flex flex-wrap text-center justify-center">
           <div class="w-full lg:w-6/12 px-4">
-            <h2 class="text-4xl font-semibold text-white">
-              Build something
-            </h2>
+            <h2 class="text-4xl font-semibold text-white">Build something</h2>
             <p class="text-lg leading-relaxed mt-4 mb-4 text-blueGray-400">
               Put the potentially record low maximum sea ice extent tihs year
               down to low ice. According to the National Oceanic and Atmospheric
@@ -514,9 +515,7 @@
             >
               <i class="fas fa-lightbulb text-xl"></i>
             </div>
-            <h5 class="text-xl mt-5 font-semibold text-white">
-              Launch time
-            </h5>
+            <h5 class="text-xl mt-5 font-semibold text-white">Launch time</h5>
             <p class="mt-2 mb-4 text-blueGray-400">
               Some quick example text to build on the card title and make up the
               bulk of the card's content.
@@ -533,9 +532,7 @@
               class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200"
             >
               <div class="flex-auto p-5 lg:p-10">
-                <h4 class="text-2xl font-semibold">
-                  Want to work with us?
-                </h4>
+                <h4 class="text-2xl font-semibold">Want to work with us?</h4>
                 <p class="leading-relaxed mt-1 mb-4 text-blueGray-500">
                   Complete this form and we will get back to you in 24 hours.
                 </p>

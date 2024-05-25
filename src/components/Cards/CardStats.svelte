@@ -5,7 +5,6 @@
   export let statTitle = "350,897";
   // The value must match one of these strings
   // "up" or "down"
-  export let statArrow = "";
   export let statPercent = "";
   // can be any of the text color utilities
   // from tailwindcss
@@ -34,7 +33,7 @@
         <div
           class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full {statIconColor}"
         >
-          <i class="{statIconName}"></i>
+          <i class={statIconName}></i>
         </div>
       </div>
     </div>

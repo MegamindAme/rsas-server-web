@@ -12,9 +12,6 @@
   import Settings from "views/admin/Settings.svelte";
   import Tables from "views/admin/Tables.svelte";
   import Maps from "views/admin/Maps.svelte";
-
-  export let location;
-  export let admin = "";
 </script>
 
 <div>

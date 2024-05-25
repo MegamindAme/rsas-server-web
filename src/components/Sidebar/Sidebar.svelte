@@ -10,8 +10,6 @@
   function toggleCollapseShow(classes) {
     collapseShow = classes;
   }
-
-  export let location;
 </script>
 
 <nav
@@ -24,7 +22,7 @@
     <button
       class="cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
       type="button"
-      on:click={() => toggleCollapseShow('bg-white m-2 py-3 px-6')}
+      on:click={() => toggleCollapseShow("bg-white m-2 py-3 px-6")}
     >
       <i class="fas fa-bars"></i>
     </button>
@@ -67,7 +65,7 @@
             <button
               type="button"
               class="cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
-              on:click={() => toggleCollapseShow('hidden')}
+              on:click={() => toggleCollapseShow("hidden")}
             >
               <i class="fas fa-times"></i>
             </button>
@@ -100,10 +98,18 @@
           <a
             use:link
             href="/admin/dashboard"
-            class="text-xs uppercase py-3 font-bold block {location.href.indexOf('/admin/dashboard') !== -1 ? 'text-red-500 hover:text-red-600':'text-blueGray-700 hover:text-blueGray-500'}"
+            class="text-xs uppercase py-3 font-bold block {location.href.indexOf(
+              '/admin/dashboard',
+            ) !== -1
+              ? 'text-red-500 hover:text-red-600'
+              : 'text-blueGray-700 hover:text-blueGray-500'}"
           >
             <i
-              class="fas fa-tv mr-2 text-sm {location.href.indexOf('/admin/dashboard') !== -1 ? 'opacity-75' : 'text-blueGray-300'}"
+              class="fas fa-tv mr-2 text-sm {location.href.indexOf(
+                '/admin/dashboard',
+              ) !== -1
+                ? 'opacity-75'
+                : 'text-blueGray-300'}"
             ></i>
             Dashboard
           </a>
@@ -113,10 +119,18 @@
           <a
             use:link
             href="/admin/settings"
-            class="text-xs uppercase py-3 font-bold block {location.href.indexOf('/admin/settings') !== -1 ? 'text-red-500 hover:text-red-600':'text-blueGray-700 hover:text-blueGray-500'}"
+            class="text-xs uppercase py-3 font-bold block {location.href.indexOf(
+              '/admin/settings',
+            ) !== -1
+              ? 'text-red-500 hover:text-red-600'
+              : 'text-blueGray-700 hover:text-blueGray-500'}"
           >
             <i
-              class="fas fa-tools mr-2 text-sm {location.href.indexOf('/admin/settings') !== -1 ? 'opacity-75' : 'text-blueGray-300'}"
+              class="fas fa-tools mr-2 text-sm {location.href.indexOf(
+                '/admin/settings',
+              ) !== -1
+                ? 'opacity-75'
+                : 'text-blueGray-300'}"
             ></i>
             Settings
           </a>
@@ -126,10 +140,18 @@
           <a
             use:link
             href="/admin/statistics"
-            class="text-xs uppercase py-3 font-bold block {location.href.indexOf('/admin/tables') !== -1 ? 'text-red-500 hover:text-red-600':'text-blueGray-700 hover:text-blueGray-500'}"
+            class="text-xs uppercase py-3 font-bold block {location.href.indexOf(
+              '/admin/tables',
+            ) !== -1
+              ? 'text-red-500 hover:text-red-600'
+              : 'text-blueGray-700 hover:text-blueGray-500'}"
           >
             <i
-              class="fas fa-table mr-2 text-sm {location.href.indexOf('/admin/tables') !== -1 ? 'opacity-75' : 'text-blueGray-300'}"
+              class="fas fa-table mr-2 text-sm {location.href.indexOf(
+                '/admin/tables',
+              ) !== -1
+                ? 'opacity-75'
+                : 'text-blueGray-300'}"
             ></i>
             Statistics
           </a>
