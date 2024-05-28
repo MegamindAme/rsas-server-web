@@ -1,6 +1,14 @@
-<script>
-  // core components
-  import CardStats from "components/Cards/CardStats.svelte";
+<script lang="ts">
+  import CardStats from '../Cards/CardStats.svelte'
+  import type { Health } from '../../interfaces/Health';
+
+  export let data: Health;
+
+  let totalListeners = 0;
+
+  Object.keys(data?.mounts)?.forEach((m) => {
+    totalListeners += data?.mounts[m]?.listener_count;
+  });
 </script>
 
 <!-- Header -->
@@ -12,7 +20,7 @@
         <div class="w-full lg:w-6/12 xl:w-3/12 px-4">
           <CardStats
             statSubtitle="Live Total Listeners"
-            statTitle="350,897"
+            statTitle={totalListeners}
             statIconName="far fa-chart-bar"
             statIconColor="bg-red-500"
           />
@@ -20,7 +28,7 @@
         <div class="w-full lg:w-6/12 xl:w-3/12 px-4">
           <CardStats
             statSubtitle="Total Streams"
-            statTitle="2,356"
+            statTitle={Object.keys(data?.mounts)?.length}
             statArrow="down"
             statPercentColor="text-red-500"
             statIconName="fas fa-chart-pie"
@@ -30,7 +38,7 @@
         <div class="w-full lg:w-6/12 xl:w-3/12 px-4">
           <CardStats
             statSubtitle="Server Counts"
-            statTitle="924"
+            statTitle="1"
             statArrow="down"
             statPercentColor="text-orange-500"
             statIconName="fas fa-users"
@@ -40,7 +48,7 @@
         <div class="w-full lg:w-6/12 xl:w-3/12 px-4">
           <CardStats
             statSubtitle="Main Server Performance"
-            statTitle="49,65%"
+            statTitle="--"
             statPercentColor="text-emerald-500"
             statIconName="fas fa-percent"
             statIconColor="bg-emerald-500"

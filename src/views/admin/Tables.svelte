@@ -1,6 +1,6 @@
 <script>
-  // core components
-  import CardTable from "components/Cards/CardTable.svelte";
+  // core ../../components
+  import CardTable from "../../components/Cards/CardTable.svelte";
 
 </script>
 

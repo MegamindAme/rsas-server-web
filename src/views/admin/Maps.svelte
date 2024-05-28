@@ -1,6 +1,6 @@
 <script>
-  // core components
-  import MapExample from "components/Maps/MapExample.svelte";
+  // core ../../components
+  import MapExample from "../../components/Maps/MapExample.svelte";
 
 </script>
 

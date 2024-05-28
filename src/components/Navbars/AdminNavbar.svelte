@@ -1,6 +1,6 @@
 <script>
-  // core components
-  import UserDropdown from "components/Dropdowns/UserDropdown.svelte";
+  // core ../components
+  import UserDropdown from "../Dropdowns/UserDropdown.svelte";
 </script>
 
 <!-- Navbar -->

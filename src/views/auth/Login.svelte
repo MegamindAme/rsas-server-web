@@ -1,10 +1,37 @@
-<script>
-  import { link } from "svelte-routing";
+<script lang="ts">
+  import { toast } from 'svelte-sonner';
+  import { superForm } from 'sveltekit-superforms/client';
 
-  // core components
-  const github = "../assets/img/github.svg";
-  const google = "../assets/img/google.svg";
-  
+  import {
+    MAX_EMAIL_LENGTH,
+    MAX_PASSWORD_LENGTH,
+    UserLoginZodSchema
+  } from '../../lib/validations/authZodShemas';
+
+  import InputField from '../../lib/components/form/InputField.svelte';
+  import SubmitButton from '../../lib/components/form/SubmitButton.svelte';
+
+  import { route } from '../../lib/ROUTES';
+  import type { PageData } from './$types';
+
+  export let data: PageData;
+
+  const { enhance, form, errors, message } = superForm(data?.userLoginFormData, {
+    resetForm: true,
+    taintedMessage: null,
+    validators: UserLoginZodSchema,
+
+    onUpdated: () => {
+      if (!$message) return;
+
+      const { alertType, alertText } = $message;
+
+      if (alertType === 'error') {
+        toast.error(alertText);
+      }
+    }
+  });
+
 </script>
 
 <div class="container mx-auto px-4 h-full">
@@ -20,7 +47,7 @@
           <hr class="mt-6 border-b-1 border-blueGray-300" />
         </div>
         <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
-          <form>
+          <form method="post" use:enhance action={route('logInUser /auth/login')}>
             <div class="relative w-full mb-3">
               <label
                 class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
@@ -28,11 +55,14 @@
               >
                 Email
               </label>
-              <input
-                id="grid-email"
-                type="email"
-                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                placeholder="Email"
+              <InputField
+                      id="grid-email"
+                      type="email"
+                      name="email"
+                      label="Email"
+                      bind:value={$form.email}
+                      errorMessage={$errors.email}
+                      maxlength={MAX_EMAIL_LENGTH}
               />
             </div>
 
@@ -43,11 +73,14 @@
               >
                 Password
               </label>
-              <input
-                id="grid-password"
-                type="password"
-                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                placeholder="Password"
+              <InputField
+                      id="grid-password"
+                      type="password"
+                      name="password"
+                      label="Password"
+                      bind:value={$form.password}
+                      errorMessage={$errors.password}
+                      maxlength={MAX_PASSWORD_LENGTH}
               />
             </div>
             <div>
@@ -64,13 +97,7 @@
             </div>
 
             <div class="text-center mt-6">
-              <a
-                use:link
-                href="/admin/dashboard"
-                class="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
-              >
-                Sign in
-              </a>
+              <SubmitButton />
             </div>
           </form>
         </div>

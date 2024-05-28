@@ -41,28 +41,28 @@
       Admin Layout
     </span>
     <a
-      use:link
+
       href="/admin/dashboard"
       class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
     >
       Dashboard
     </a>
     <a
-      use:link
+
       href="/admin/settings"
       class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
     >
       Settings
     </a>
     <a
-      use:link
+
       href="/admin/tables"
       class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
     >
       Tables
     </a>
     <a
-      use:link
+
       href="/admin/maps"
       class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
     >
@@ -75,14 +75,14 @@
       Auth Layout
     </span>
     <a
-      use:link
+
       href="/auth/login"
       class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
     >
       Login
     </a>
     <a
-      use:link
+
       href="/auth/register"
       class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
     >
@@ -95,14 +95,14 @@
       No Layout
     </span>
     <a
-      use:link
+
       href="/landing"
       class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
     >
       Landing
     </a>
     <a
-      use:link
+
       href="/profile"
       class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
     >

@@ -1,9 +1,4 @@
 <script>
-  import { link } from "svelte-routing";
-
-  // core components
-  import IndexDropdown from "components/Dropdowns/IndexDropdown.svelte";
-
   let navbarOpen = false;
 
   function setNavbarOpen() {
@@ -21,7 +16,6 @@
       class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start"
     >
       <a
-        use:link
         class="text-blueGray-700 text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase"
         href="/"
       >
@@ -33,9 +27,7 @@
       id="example-navbar-warning"
     >
       <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
-        <a
-        use:link
-        class="text-blueGray-700 text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase"
+        <a class="text-blueGray-700 text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase"
         href="/auth/login"
       >
         Login

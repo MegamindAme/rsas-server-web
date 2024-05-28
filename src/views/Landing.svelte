@@ -2,8 +2,8 @@
   import { link } from "svelte-routing";
 
   // core components
-  import AuthNavbar from "components/Navbars/AuthNavbar.svelte";
-  import Footer from "components/Footers/Footer.svelte";
+  import AuthNavbar from "../components/Navbars/AuthNavbar.svelte";
+  import Footer from "../components/Footers/Footer.svelte";
 
   const team1 = "/assets/img/team-1-800x800.jpg";
   const team2 = "/assets/img/team-2-800x800.jpg";
@@ -149,7 +149,7 @@
               faster. You can change the text and images and you're good to go.
               Just make sure you enable them first via JavaScript.
             </p>
-            <a use:link href="/" class="font-bold text-blueGray-700 mt-8">
+            <a  href="/" class="font-bold text-blueGray-700 mt-8">
               Check Notus Svelte!
             </a>
           </div>
