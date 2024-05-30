@@ -1,12 +1,12 @@
 <script>
-	import { link } from 'svelte-routing';
-
 	// core ../components
 	import NotificationDropdown from '../Dropdowns/NotificationDropdown.svelte';
 	import UserDropdown from '../Dropdowns/UserDropdown.svelte';
 
 	let collapseShow = 'hidden';
 
+	export let location;
+	console.log(location.href)
 	function toggleCollapseShow(classes) {
 		collapseShow = classes;
 	}

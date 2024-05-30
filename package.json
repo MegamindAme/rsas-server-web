@@ -58,6 +58,7 @@
 		"dotenv": "^16.4.5",
 		"drizzle-orm": "^0.29.3",
 		"drizzle-zod": "^0.5.1",
+		"fast-xml-parser": "^4.4.0",
 		"lucia": "^3.2.0",
 		"lucide-svelte": "^0.379.0",
 		"oslo": "^1.2.0",
