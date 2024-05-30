@@ -3,15 +3,20 @@
     import Mount from "./Mount.svelte";
 
     export let mounts: Mount[];
-    let mountsName = mounts.map((m) => m["mount-name"]);
+
+    let mountsName = mounts != undefined ? mounts.map((m) => m["mount-name"]) : [];
 
     function handleButton() {
         let sock = {} as Mount;
 
-        let l = mounts;
-        l.push(sock);
+        if (mounts == undefined) {
+            mounts = [{}] as Mount[]
+        } else {
+            let l = mounts;
+            l.push(sock);
 
-        mounts = l;
+            mounts = l;
+        }
     }
 
     function deleteMount(i) {
@@ -39,11 +44,13 @@
 
 {#if mounts}
     {#each mounts as mount, index (mount)}
-        <Mount
-                index={index}
-                bind:mount={mount}
-                deleteMount={deleteMount}
-                mounts={mountsName}
-        ></Mount>
+        {#if mount}
+            <Mount
+                    index={index}
+                    bind:mount={mount}
+                    deleteMount={deleteMount}
+                    mounts={mountsName}
+            ></Mount>
+        {/if}
     {/each}
 {/if}

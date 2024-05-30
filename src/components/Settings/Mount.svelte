@@ -74,12 +74,12 @@
         deleteMount(index);
     }
 </script>
-<div class="bg-blueGray-50 my-6 py-3 px-6 details-container">
-    <input id="toggle{index}" class="toggle" type="checkbox">
-    <label for="toggle{index}" class="summary-label">
+<div class="bg-blueGray-50 my-6 py-3 px-6 mount-details-container">
+    <input id="toggle-mount-{index}" class="mount-toggle" type="checkbox">
+    <label for="toggle-mount-{index}" class="mount-summary-label">
         {mount["mount-name"] ?? ""}
     </label>
-    <div class="flex flex-wrap details relative">
+    <div class="flex flex-wrap mount-details relative">
         <div class="w-full lg:w-4/12 px-4">
             <div class="relative w-full mb-3">
                 <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" for="grid-mountname">
@@ -151,14 +151,16 @@
                 <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" for="grid-fallbackmount">
                     <sub>Fallback Mount</sub>
                 </label>
-                <select id="grid-fallbackmount" on:change={handleChangeFallbackMount} value={mount["fallback-mount"]}>
+                <select id="grid-fallbackmount" class="w-full" on:change={handleChangeFallbackMount} value={mount["fallback-mount"]}>
                     <option value="">--</option>
                     {#each mounts as m}
-                        <option value={m}>{m}</option>
+                        {#if m !== mount["mount-name"]}
+                            <option value={m}>{m}</option>
+                        {/if}
                     {/each}
                 </select>
             </div>
-        </div> <!-- fix fallback mount-->
+        </div> <!-- fallback mount-->
         <div class="w-full lg:w-4/12 px-4">
             <div class="relative w-full mb-3">
                 <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" for="grid-fallbackoverride">
@@ -303,15 +305,16 @@
 </div>
 
 <style>
-    .details-container {
+    .mount-details-container {
         box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     }
-    .toggle {
+
+    .mount-toggle {
         appearance: none;
         display: none;
     }
 
-    .summary-label {
+    .mount-summary-label {
         width: 100%;
         display: flex;
         flex-direction: row-reverse;
@@ -321,7 +324,7 @@
         margin: 15px 0;
     }
 
-    .toggle+label:before {
+    .mount-toggle + label:before {
         content: "⯈";
         display: inline-block;
         text-align: right;
@@ -329,18 +332,18 @@
         transform: rotate(90deg);
     }
 
-    .toggle:checked+label:before {
+    .mount-toggle:checked + label:before {
         transform: rotate(270deg);
     }
 
-    .toggle~.details {
+    .mount-toggle ~ .mount-details {
         max-height: 0;
         opacity: 0;
         overflow: hidden;
         transition: max-height .5s, opacity .5s;
     }
 
-    .toggle:checked~.details {
+    .mount-toggle:checked ~ .mount-details {
         max-height: 100vh;
         opacity: 1;
     }

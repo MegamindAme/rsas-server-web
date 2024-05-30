@@ -1,9 +1,10 @@
 import fs from 'fs';
 import {XMLParser, XMLBuilder} from "fast-xml-parser";
 import { json } from '@sveltejs/kit';
+import {RSAS_FILE_PATH} from "$env/static/private";
 
 export async function GET() {
-    const path = "data/rsas.xml";
+    const path = RSAS_FILE_PATH;
     let content = "";
 
     content = await readFile(path);
@@ -18,7 +19,7 @@ export async function POST(event) {
     const {request} = event;
 
     try {
-        const path = "data/rsas_write.xml";
+        const path = RSAS_FILE_PATH;
         const data = await request.json();
 
         const builder = new XMLBuilder();
@@ -29,7 +30,7 @@ export async function POST(event) {
         return json({ error: 'Invalid request body', body: await event.request.json() }, { status: 400 });
     }
 
-    return json({message: 'Ok'}, {status: 400});
+    return json({message: 'Ok'}, {status: 200});
 }
 
 async function writeFile(filePath, data) {

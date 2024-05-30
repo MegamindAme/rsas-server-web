@@ -4,16 +4,20 @@
 
     export let listenSocket: ListenSocket[];
 
-    function handleButton(){
-        let sock = {  port: "", "bind-address": "0.0.0.0"} as ListenSocket;
+    function handleButton() {
+        let sock = {port: "", "bind-address": "0.0.0.0"} as ListenSocket;
 
-        let l = listenSocket;
-        l.push(sock);
+        if (listenSocket == undefined) {
+            listenSocket = [{}] as ListenSocket[]
+        } else {
+            let l = listenSocket;
+            l.push(sock);
 
-        listenSocket = l;
+            listenSocket = l;
+        }
     }
 
-    function deleteSocket(i){
+    function deleteSocket(i) {
         let d = listenSocket;
         d.splice(i, 1);
 
@@ -36,6 +40,9 @@
 
 {#if listenSocket}
     {#each listenSocket as socket, index (socket)}
-        <Socket bind:port={socket.port} bind:bindAddress={socket["bind-address"]} deleteSocket={deleteSocket} index={index}></Socket>
+        {#if socket}
+            <Socket bind:port={socket.port} bind:bindAddress={socket["bind-address"]} deleteSocket={deleteSocket}
+                    index={index}></Socket>
+        {/if}
     {/each}
 {/if}

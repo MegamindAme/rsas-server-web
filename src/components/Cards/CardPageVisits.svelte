@@ -1,8 +1,8 @@
 <script lang="ts">
   import type { Health } from '../../interfaces/Health';
+  import {PUBLIC_RSAS_BASE_URL} from "$env/static/public";
 
   export let data: Health;
-  console.log(data.mounts)
 
 </script>
 
@@ -67,7 +67,7 @@
                     class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
             >
               <audio controls  preload="none">
-                <source src="http://qcell.megamindame.xyz:8000{mount}" type="audio/mpeg">
+                <source src="{PUBLIC_RSAS_BASE_URL}:8000{mount}" type="audio/mpeg">
                 Your browser does not support the audio element.
               </audio>
             </td>
