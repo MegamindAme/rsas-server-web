@@ -5,17 +5,10 @@
     import {onMount} from 'svelte';
 
     export let data: Health;
-    console.log(data)
-    let totalListeners = 0;
-
-    Object.keys(data?.mounts)?.forEach((m) => {
-        totalListeners += data?.mounts[m]?.listener_count;
-    });
 
     async function fetchData() {
         const res = await fetch(`${PUBLIC_RSAS_BASE_URL}/health`);
         data = await res.json() as Health;
-        console.log(data)
     }
 
     onMount(() => {
@@ -36,7 +29,7 @@
                 <div class="w-full lg:w-6/12 xl:w-3/12 px-4">
                     <CardStats
                             statSubtitle="Live Total Listeners"
-                            statTitle={totalListeners}
+                            statTitle={data.total_listener_count}
                             statIconName="far fa-chart-bar"
                             statIconColor="bg-red-500"
                     />
