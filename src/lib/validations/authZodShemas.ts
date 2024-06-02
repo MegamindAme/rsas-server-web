@@ -29,4 +29,6 @@ export const RegisterUserZodSchema = createInsertSchema(usersTable, {
             .max(MAX_PASSWORD_LENGTH, PASSWORD_MAX_ERROR_MESSAGE)
 });
 
+export const EmailZodSchema = RegisterUserZodSchema.pick({ email: true });
+export const PasswordZodSchema = RegisterUserZodSchema.pick({ password: true });
 export const UserLoginZodSchema = RegisterUserZodSchema.pick({ email: true, password: true });

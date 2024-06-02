@@ -46,7 +46,6 @@ export const actions: Actions = {
             return setError(userLoginFormData, 'email', 'Email not registered');
         }
 
-        console.log("Hash" + existingUser.password)
         console.log(await new Argon2id().hash(userLoginFormData.data.password))
 
         const validPassword = await new Argon2id().verify(

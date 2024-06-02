@@ -1,12 +1,12 @@
 <script>
 	// core ../components
-	import NotificationDropdown from '../Dropdowns/NotificationDropdown.svelte';
-	import UserDropdown from '../Dropdowns/UserDropdown.svelte';
+	import { route } from '../../lib/ROUTES';
+	import { enhance } from '$app/forms';
 
 	let collapseShow = 'hidden';
 
 	export let location;
-	console.log(location.href)
+
 	function toggleCollapseShow(classes) {
 		collapseShow = classes;
 	}
@@ -34,15 +34,6 @@
 		>
 			QCell Streaming
 		</a>
-		<!-- User -->
-		<ul class="md:hidden items-center flex flex-wrap list-none">
-			<li class="inline-block relative">
-				<NotificationDropdown />
-			</li>
-			<li class="inline-block relative">
-				<UserDropdown />
-			</li>
-		</ul>
 		<!-- Collapse -->
 		<div
 			class="md:flex md:flex-col md:items-stretch md:opacity-100 md:relative md:mt-4 md:shadow-none shadow absolute top-0 left-0 right-0 z-40 overflow-y-auto overflow-x-hidden h-auto items-center flex-1 rounded {collapseShow}"
@@ -131,7 +122,42 @@
 						Settings
 					</a>
 				</li>
+
+				<li class="items-center">
+					<a
+
+						href="/admin/profile"
+						class="text-xs uppercase py-3 font-bold block {location.href.indexOf(
+							'/admin/settings'
+						) !== -1
+							? 'text-red-500 hover:text-red-600'
+							: 'text-blueGray-700 hover:text-blueGray-500'}"
+					>
+						<i
+							class="fas fa-tools mr-2 text-sm {location.href.indexOf('/admin/profile') !== -1
+								? 'opacity-75'
+								: 'text-blueGray-300'}"
+						></i>
+						Profile
+					</a>
+				</li>
+
+				<li class="items-center logout">
+					<form method="post" use:enhance action={route('logout /dashboard')}>
+						<button class="bg-green-400 text-white active:bg-green-500 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+								type="submit">
+							Logout
+						</button>
+					</form>
+				</li>
 			</ul>
 		</div>
 	</div>
 </nav>
+
+<style>
+	.logout {
+		position: absolute;
+		bottom: 0;
+	}
+</style>

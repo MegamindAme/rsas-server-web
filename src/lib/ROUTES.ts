@@ -28,8 +28,9 @@ const SERVERS = {
 const ACTIONS = {
   "logInUser /auth/login": `/auth/login?/logInUser`,
   "registerUser /auth/register": `/auth/register?/registerUser`,
-  "logout /dashboard": `/dashboard?/logout`,
-  "deleteAllUsers /dashboard": `/dashboard?/deleteAllUsers`
+  "logout /dashboard": `/admin/dashboard?/logout`,
+  "changeUsername /profile": `/admin/profile?/changeUsername`,
+  "changePassword /profile": `/admin/profile?/changePassword`
 }
 
 /**

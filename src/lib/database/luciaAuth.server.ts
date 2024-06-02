@@ -1,7 +1,7 @@
 import { dev } from '$app/environment';
 
 import { DrizzleSQLiteAdapter } from '@lucia-auth/adapter-drizzle';
-import { Lucia } from 'lucia';
+import {Lucia, TimeSpan} from 'lucia';
 
 import { database } from './database.server';
 import { usersSessionsTable, usersTable } from './schema';
@@ -14,7 +14,7 @@ export const lucia = new Lucia(dbAdapter, {
 			secure: !dev
 		}
 	},
-
+	sessionExpiresIn: new TimeSpan(1, "w"),
 	getUserAttributes: (attributes) => {
 		return {
 			name: attributes.name,
