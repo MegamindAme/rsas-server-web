@@ -9,6 +9,7 @@ export interface Icecast {
   hls: Hls
   mount: Mount[]
   relay: Relay[]
+  paths: Paths;
 }
 
 export interface ListenSocket {
@@ -59,4 +60,19 @@ export interface Relay {
   "on-demand": number
   "auto-stop"?: number
   "hls-relay"?: number
+}
+
+export interface Paths {
+  logdir:                string;
+  webroot:               string;
+  "ssl-certificate":     string;
+  "ssl-private-key":     string;
+  "ssl-dhparams":        string;
+  "ssl-allowed-ciphers": string;
+  alias:                 Alias;
+}
+
+export interface Alias {
+  _source: string;
+  _dest:   string;
 }
