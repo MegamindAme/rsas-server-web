@@ -5,6 +5,13 @@ import { lucia } from './lib/database/luciaAuth.server';
 import { AUTH_ROUTES, DASHBOARD_ROUTE } from './lib/utils/navLinks';
 
 export const handle: Handle = async ({ event, resolve }) => {
+
+    const response = await resolve(event);
+
+    response.headers.set('Access-Control-Allow-Origin', 'https://dashboard.fopradiowebcasting.top'); // Replace with your frontend origin
+    response.headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
     // Retrieve the session ID from the browser's cookies
     const sessionId = event.cookies.get(lucia.sessionCookieName);
 
