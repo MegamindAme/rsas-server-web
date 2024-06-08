@@ -13,7 +13,9 @@ app.use(
         contentSecurityPolicy: {
             directives: {
                 ...helmet.contentSecurityPolicy.getDefaultDirectives(),
-                "script-src": ["'self'", "'unsafe-inline'", "https://rsas.fopradiowebcasting.top"],
+                "script-src": ["'self'", "'unsafe-inline'"],
+                "default-src": ["'self'", "https://rsas.fopradiowebcasting.top"],
+                "connect-src": ["'self'", "https://rsas.fopradiowebcasting.top"],
             }
         },
         referrerPolicy: {
