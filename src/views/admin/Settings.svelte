@@ -49,8 +49,8 @@
             </div>
         </div>
         <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
-            <ListenSettings bind:listenSocket={data.icecast["listen-socket"]}></ListenSettings>
-            <hr>
+<!--            <ListenSettings bind:listenSocket={data.icecast["listen-socket"]}></ListenSettings>-->
+<!--            <hr>-->
             <MountSettings bind:mounts={data.icecast.mount}></MountSettings>
             <hr>
             <RelaySettings bind:mounts={data.icecast.mount} bind:relays={data.icecast.relay}></RelaySettings>
