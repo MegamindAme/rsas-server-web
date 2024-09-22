@@ -13,6 +13,18 @@ export const usersTable = sqliteTable('users', {
     createdAt: text('created_at').default(sql`CURRENT_TIMESTAMP`)
 });
 
+export const domainsTable = sqliteTable('domains', {
+    id: integer('id', { mode: 'number' }).primaryKey({ autoIncrement: true }),
+
+    name: text('name').notNull(),
+
+    apiDomain: text('api_domain').notNull(),
+
+    rsasDomain: text('rsas_domain').notNull(),
+
+    createdAt: text('created_at').default(sql`CURRENT_TIMESTAMP`)
+});
+
 export const usersSessionsTable = sqliteTable('users_sessions', {
     id: text('id').primaryKey(),
 

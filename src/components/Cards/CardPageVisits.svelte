@@ -1,9 +1,10 @@
 <script lang="ts">
   import type { Health } from '../../interfaces/Health';
-  import {PUBLIC_RSAS_BASE_URL} from "$env/static/public";
+  import {getContext} from "svelte";
 
   export let data: Health;
 
+  const currentRsasDomain = getContext('currentRsasDomainValue');
 </script>
 
 <div
@@ -46,7 +47,7 @@
         </tr>
       </thead>
       <tbody>
-        {#each Object.keys(data.mounts) as mount}
+        {#each Object.keys(data?.mounts ?? []) as mount}
           <tr>
             <th
                     class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"
@@ -67,7 +68,7 @@
                     class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
             >
               <audio controls  preload="none">
-                <source src="{PUBLIC_RSAS_BASE_URL}{mount}" type="audio/mpeg">
+                <source src="{$currentRsasDomain}{mount}" type="audio/mpeg">
                 Your browser does not support the audio element.
               </audio>
             </td>

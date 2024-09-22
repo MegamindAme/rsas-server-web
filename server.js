@@ -13,9 +13,9 @@ app.use(
         contentSecurityPolicy: {
             directives: {
                 ...helmet.contentSecurityPolicy.getDefaultDirectives(),
-                "script-src": ["'self'", "'unsafe-inline'"],
-                "default-src": ["'self'", "https://rsas.fopradiowebcasting.top"],
-                "connect-src": ["'self'", "https://rsas.fopradiowebcasting.top"],
+                "script-src": ["*", "'unsafe-inline'"],
+                "default-src": ["*", "https://rsas.fopradiowebcasting.top"],
+                "connect-src": ["*", "https://rsas.fopradiowebcasting.top"],
             }
         },
         referrerPolicy: {
@@ -37,5 +37,5 @@ createTerminus(server, {
 })
 
 server.listen(8080, () => {
-    console.log('Listening on port 3000');
+    console.log('Listening on port 8080');
 });

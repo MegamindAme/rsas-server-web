@@ -1,23 +1,26 @@
 <script lang="ts">
     import {PUBLIC_BASE_URL} from "$env/static/public"
-    import ListenSettings from "../../components/Settings/ListenSettings.svelte"
+    import {PUBLIC_HTTP_SCHEME} from "$env/static/public"
     import RelaySettings from "../../components/Settings/RelaySettings.svelte"
     import MountSettings from "../../components/Settings/MountSettings.svelte"
     import type {IceCastRoot, Mount, Relay, ListenSocket} from "../../interfaces/Icecast";
+    import {getContext} from "svelte";
 
     export let data: IceCastRoot;
 
-    if (!Array.isArray(data.icecast["listen-socket"]) && data.icecast["listen-socket"] != undefined){
+    const currentApiDomain = getContext('currentApiDomainValue');
+
+    if (!Array.isArray(data?.icecast["listen-socket"]) && data?.icecast["listen-socket"] != undefined) {
         let l = data.icecast["listen-socket"] as ListenSocket;
         data.icecast["listen-socket"] = [l] as ListenSocket[];
     }
 
-    if (!Array.isArray(data.icecast.mount) && data.icecast.mount != undefined){
+    if (!Array.isArray(data?.icecast.mount) && data?.icecast.mount != undefined) {
         let m = data.icecast.mount as Mount;
         data.icecast.mount = [m] as Mount[];
     }
 
-    if (!Array.isArray(data.icecast.relay) && data.icecast.relay != undefined){
+    if (!Array.isArray(data?.icecast.relay) && data?.icecast.relay != undefined) {
         let r = data.icecast.relay as Relay;
         data.icecast.relay = [r] as Relay[];
     }
@@ -25,7 +28,9 @@
     async function handleSubmit(event) {
         event.preventDefault();
 
-        const response = await fetch(`${PUBLIC_BASE_URL}/api/rsas`, {
+        const url = $currentApiDomain.includes(PUBLIC_BASE_URL) ? `${$currentApiDomain}/api/rsas` : `${PUBLIC_HTTP_SCHEME}${PUBLIC_BASE_URL}/api/domains/route?domain=${$currentApiDomain}/api/rsas`;
+
+        const response = await fetch(url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -49,8 +54,8 @@
             </div>
         </div>
         <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
-<!--            <ListenSettings bind:listenSocket={data.icecast["listen-socket"]}></ListenSettings>-->
-<!--            <hr>-->
+            <!--            <ListenSettings bind:listenSocket={data.icecast["listen-socket"]}></ListenSettings>-->
+            <!--            <hr>-->
             <MountSettings bind:mounts={data.icecast.mount}></MountSettings>
             <hr>
             <RelaySettings bind:mounts={data.icecast.mount} bind:relays={data.icecast.relay}></RelaySettings>

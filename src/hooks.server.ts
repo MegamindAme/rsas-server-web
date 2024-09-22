@@ -1,5 +1,6 @@
 import { redirect, type Handle } from '@sveltejs/kit';
 
+import { route } from './lib/ROUTES';
 import { deleteSessionCookie } from './lib/database/authUtils.server';
 import { lucia } from './lib/database/luciaAuth.server';
 import { AUTH_ROUTES, DASHBOARD_ROUTE } from './lib/utils/navLinks';
@@ -11,6 +12,13 @@ export const handle: Handle = async ({ event, resolve }) => {
 
     // If there's no session ID, set both user and session to null and resolve the request
     if (!sessionId) {
+        if (event.url.pathname.includes("/api")) {
+            throw redirect(
+                303,
+                route('/auth/login')
+            );
+        }
+
         event.locals.user = null;
         event.locals.session = null;
         return resolve(event);

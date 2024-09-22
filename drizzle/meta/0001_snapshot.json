@@ -1,18 +1,18 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "04e2ceb9-3fbf-40aa-bab3-2e6917794eff",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "cd877b65-be61-46c2-9df1-cb6d224bc30a",
+  "prevId": "04e2ceb9-3fbf-40aa-bab3-2e6917794eff",
   "tables": {
     "domains": {
       "name": "domains",
       "columns": {
         "id": {
           "name": "id",
-          "type": "text",
+          "type": "integer",
           "primaryKey": true,
           "notNull": true,
-          "autoincrement": false
+          "autoincrement": true
         },
         "name": {
           "name": "name",

@@ -65,6 +65,7 @@
 		"helmet": "^7.1.0",
 		"lucia": "^3.2.0",
 		"lucide-svelte": "^0.379.0",
+		"node-fetch": "^3.3.2",
 		"oslo": "^1.2.0",
 		"sirv-cli": "1.0.11",
 		"svelte-meta-tags": "^3.1.2",

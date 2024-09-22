@@ -3,7 +3,7 @@
   // import { env } from "$env/static/public";
   import CardPageVisits from "../../components/Cards/CardPageVisits.svelte";
   import type { Health } from '../../interfaces/Health';
-console.log("dash component")
+
   export let data: Health;
 </script>
 
